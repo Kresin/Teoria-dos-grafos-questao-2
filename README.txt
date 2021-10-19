@@ -15,3 +15,7 @@ Criar uma matriz de números com o labirinto onde:
 Implementar função para encontrar o caminho;
 Implementar função para calcular a distância;
 Implementar função para cálcular a heurística;
+
+Fonte de consulta:
+https://stackabuse.com/graphs-in-java-a-star-algorithm/
+https://rosettacode.org/wiki/A*_search_algorithm#Java
