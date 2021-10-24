@@ -1,29 +1,34 @@
-import java.sql.SQLOutput;
+//Integrantes: Gabriel Kresin e Iago G. Tambosi
+
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
         int[][] mapa = {
-        { 0, 0, 0, 0, 0, 0, 0},
-        { 0, 0, 0, 0,-1,-1, 0},
-        { 0,-1,-1, 0,-1, 1, 0},
-        { 0, 0, 0, 0,-1, 0, 0},
-        { 0,-1,-1, 0,-1,-1, 0},
-        { 0, 0, 0, 0, 0, 0, 0},
-        { 0,-1,-1, 0, 0, 0, 0},
-    };
+            { 0, 0, 0, 0, 0, 0, 0},
+            { 0, 0, 0, 0,-1,-1, 0},
+            { 0,-1,-1, 0,-1, 0, 0},
+            { 0, 0, 0, 0,-1, 0, 0},
+            { 0,-1,-1, 0,-1,-1, 0},
+            { 0, 0, 0, 0, 0, 0, 0},
+            { 0,-1,-1, 0, 0, 0, 0}
+        };
+        //Fornecer na construção do objeto AEstrela as coordenadas do ponto de início, do ponto de destino e fornecer o mapa
+        //Obs.: coordenadas no mapa seguem o seguinte padrão: mapa[x][y]
+        AEstrela ae = new AEstrela(6,0,2,4,mapa);
 
-    AEstrela ae = new AEstrela(1,2,2,5,mapa);
-    System.out.println(ae.abertos.toString());
-    System.out.println(ae.fechados.toString());
+        List<No> backtrack =  ae.procuraCaminho();
 
-    No no = new No(null, 0,11,1,2);
-    ae.adicionaNosVizinhos(no);
-
-    System.out.println(ae.abertos.toString());
-    System.out.println(ae.fechados.toString());
-
+        if (backtrack.size() != 0) {
+            String caminho = "";
+            for (int i = backtrack.size() -1; i >= 0; i--) {
+                caminho += "[" + backtrack.get(i).x + "," + backtrack.get(i).y + "]" + ", ";
+            }
+            System.out.println("O caminho encontrado foi:\n" + caminho.substring(0, caminho.length()-2) + "\nO custo (g) foi:\n" + backtrack.get(0).g);
+        } else {
+            System.out.println("Não foi encontrado um caminho possível");
+        }
     }
-
 }
