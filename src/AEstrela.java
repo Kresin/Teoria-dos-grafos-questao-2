@@ -12,7 +12,7 @@ public class AEstrela {
     private List<No> fechados;
     private int[][] mapa;
 
-    //*** Verificar ***
+
     private int calculaHeuristica(int xNo, int yNo, int xFim, int yFim) {
         //Calcula a distancia 'Manhattan' (G) de um No até o objetivo final
 
