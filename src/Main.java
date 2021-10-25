@@ -17,7 +17,7 @@ public class Main {
         };
         //Fornecer na construção do objeto AEstrela as coordenadas do ponto de início, do ponto de destino e fornecer o mapa
         //Obs.: coordenadas no mapa seguem o seguinte padrão: mapa[x][y]
-        AEstrela ae = new AEstrela(6,0,2,4,mapa);
+        AEstrela ae = new AEstrela(6,0,2,5,mapa);
 
         List<No> backtrack =  ae.procuraCaminho();
 
